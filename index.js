@@ -15,6 +15,21 @@ server.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+//creates a new endpoint that returns however many hobbitses exist on the server.
+server.get('/hobbits', (req, res) => {
+    const hobbits = [
+        {
+            id: 1,
+            name: 'Samwise Gamgee',
+        },
+        {
+            id: 2,
+            name: "Frodo Baggins",
+        },
+    ];
+    res.status(200).json(hobbits);
+})
+
 // once the server is fully configured we can have it "listen" for connections on a particular "port"
 // the callback function passed as the second argument will run once when the server starts
 server.listen(8000, () => console.log('API running on port 8000'));
